@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'toolstockapp'
 ]
 
 MIDDLEWARE = [
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC-5'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
