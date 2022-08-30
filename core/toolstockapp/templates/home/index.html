@@ -7,7 +7,15 @@ Pagina de Inicio
 
 
 {% block cuerpo %}
-<div class="container-fluid">
-    <h1>Titulo Principal</h1>
-</div>
+{% load static %}
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{% static 'logo_toolstock.png' %}" alt="logotio" width="220"
+                    height="50" class="d-inline-block align-text-top"></a>
+
+        </div>
+    </nav>
+</header>
+
 {% endblock cuerpo %}
