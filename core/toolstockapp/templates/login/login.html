@@ -1,1 +1,36 @@
 {% extends 'layout/base.html' %}
+{% load static %}
+
+{% block titulo %}
+Login
+{% endblock titulo %}
+{% block headModificable%}
+<link href="{% static 'css\signin.css' %}" rel="stylesheet">
+{% endblock headModificable%}
+
+
+{% block cuerpo %}
+
+
+<div class="text-center" id="loginContenedor">
+    <main class="form-signin w-100 m-auto">
+        <form>
+            <img class="mb-4" src="{% static 'img\person-circle.svg' %}" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Ingrese sus datos</h1>
+
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Correo Electronico</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+
+        </form>
+    </main>
+</div>
+
+
+{% endblock cuerpo %}
