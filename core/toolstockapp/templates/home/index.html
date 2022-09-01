@@ -9,6 +9,36 @@ Página de Inicio
 {% block cuerpo %}
 {% load static %}
 
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <main>
+        <div class="row">
+            <div class="col-10">
+                <h1>ToolStock</h1>
+                <p class="fs-5 col-md-12 ">Aquí encuentras toda la información que necesites sobre productos de
+                    ferreteria</p>
+
+                <div class="row py-md-5">
+                    <div class="col">
+                        <a href="{% url 'grupos' %}" class="btn btn-primary ">Soy Consumidor</a>
+                    </div>
+                    <div class="col">
+                        <a href="/docs/5.2/examples/" class="btn btn-primary">Soy Administrador</a>
+                    </div>
+                    <div class="col">
+                        <a href="/docs/5.2/examples/" class="btn btn-primary">Soy Proveedor</a>
+                    </div>
+                </div class="row">
+            </div>
+            <div class="col-2">
+                <img src="{% static 'img\index-portada.jpg' %}" alt="logotio" width="356"></a>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+
+
 <!--
 <header>
     <nav class="navbar navbar-dark bg-dark">
