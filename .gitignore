@@ -1,4 +1,5 @@
 venv/
+consultas.sql
 *.pyc
 __pycache__
 db.sqlite3
