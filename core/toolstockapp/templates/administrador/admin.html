@@ -40,7 +40,10 @@
                             class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        {% if user.is_authenticated%}
+                        <li><a class="dropdown-item">{{ user.username }}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout'%}">Cerrar Sesión</a></li>
+                        {% endif%}
                     </ul>
                 </div>
             </header>
@@ -58,7 +61,13 @@
             <div class="table-title bg-dark">
                 <div class="row">
                     <div class="col-6">
-                        <h2><b>Productos</b></h2>
+                        <h2>
+                            <b>
+                                {% for grupo in grupos%}
+                                {{grupo.nombre}}
+                                {% endfor %}
+                            </b>
+                        </h2>
                     </div>
                     <div class="col-6">
                         <a class="btn btn-success agregar bg-success" data-toggle="modal"><span
@@ -81,7 +90,24 @@
                         </tr>
                     </thead>
                     <tbody class="">
+                        {% for producto in productos %}
                         <tr>
+                            <td scope="row">{{producto.nombre}}</td>
+                            <td>{{producto.proveedor.nombre}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td>{{producto.unidad.medida}}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a type="button" class=" edit btn bg-info btn-sm text-light">Ver</a>
+                                    <a type="button" class=" edit btn bg-warning btn-sm text-light">Editar</a>
+                                    <a type="button" class="btn bg-danger btn-sm text-light">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        <!--
+                            <tr>
                             <td scope="row">Cerradura</td>
                             <td>Ideace Gato</td>
                             <td>50,000 COP</td>
@@ -95,7 +121,7 @@
 
                             </td>
                         </tr>
-
+                        -->
                     </tbody>
                 </table>
             </div>
@@ -104,6 +130,24 @@
 
 
     </main>
+
+    <div id="editarProducto" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
 

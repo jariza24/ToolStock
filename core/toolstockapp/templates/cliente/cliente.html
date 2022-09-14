@@ -44,7 +44,13 @@
             <div class="table-title bg-dark">
                 <div class="row">
                     <div class="col-6">
-                        <h2><b>Productos</b></h2>
+                        <h2>
+                            <b>
+                                {% for grupo in grupos%}
+                                {{grupo.nombre}}
+                                {% endfor %}
+                            </b>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -62,7 +68,22 @@
                         </tr>
                     </thead>
                     <tbody class="">
+                        <!---->
+                        {% for producto in productos %}
                         <tr>
+                            <td scope="row">{{producto.nombre}}</td>
+                            <td>{{producto.proveedor.nombre}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td>{{producto.unidad.medida}}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn bg-info btn-sm text-light">Ver</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <!--
+                            <tr>
                             <td scope="row">Cerradura</td>
                             <td>Ideace Gato</td>
                             <td>50,000 COP</td>
@@ -71,13 +92,17 @@
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn bg-info btn-sm text-light">Ver</button>
                                 </div>
-                                <!--
+                        -->
+
+                        <!--
                                     <a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                                         title="Editar">&#xe8f4;</i></a>
                                 -->
-
+                        <!--
                             </td>
                         </tr>
+                        -->
+
 
                     </tbody>
                 </table>

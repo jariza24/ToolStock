@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>TOOLSTOCK</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'img\grupos\favicon.svg' %}" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <!--<link href="styles.css" rel="stylesheet" />-->
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-ligth bg-ligth">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img\base\logo_toolstock.png' %}"
+                    alt="logotio" width="220" height="50" class="d-inline-block align-text-top"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class=" btn btn-outline-warning">Soy un
+                        Cliente</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="py-5">
+
+
+        <div class="bg-image d-flex flex-row justify-content-center alig-items-center">
+            <img class="border rounded" src="{% static 'img\grupos\grupos-img.png' %}">
+        </div>
+
+        <!--
+            <h1 class="fw-bolder"><img src="{% static 'img\grupos\grupos-img.png' %}" width="1350"></h1>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-dark">
+                <h1 class="display-4 fw-bolder">imagen</h1>
+            </div>
+        </div>
+        -->
+
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center">
+
+                <!--Grupo 1 Cerrajería-->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\cerrajeria.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">CERRAJERÍA</h5>
+                                <article>
+                                    Encuentra todo aquello que involucra el uso de llaves, cerraduras y cerrojos
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id1 %}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupos 2 ENCHAPES PARA MURO-->
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\enchapes.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">ENCHAPES</h5>
+                                <!-- Product reviews-->
+                                <article>
+                                    Encuentra los enchapes y todo lo que necesitas para tu decoración
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id2%}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 3 PISOS DE CERÁMICA-->
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\pisos.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">PISOS</h5>
+                                <!-- Product price-->
+                                <article>
+                                    Encuentra los pisos y todo lo que necesitas
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id3%}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRupo 4 TUBERÍA PVC - ELÉCTRICA-->
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\tuberia-electrica.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">TUBERÍA ELÉCTRICA</h5>
+                                <!-- Product price-->
+                                <article>
+                                    Encuentra todo lo que necesitas para instalaciones eléctricas
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id4%}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 5 TUBERÍA PVC - SANITARIA ALL Y VENTILACIÓN-->
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\tuberia-pvc.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">TUBERÍA PVC</h5>
+                                <article>
+                                    Encuentra todo lo que necesitas en tubería PVC
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id5%}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 6 PINTURAS - ESMALTES Y VINILOS-->
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{% static 'img\grupos\pinturas.png' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">PINTURAS</h5>
+                                <!-- Product reviews-->
+                                Encuentra todo lo relacionado en pinturas
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                    href="{% url 'cliente' id.id6%}">Ver productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <div class="container">
+
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="https://www.misiontic2022.gov.co/portal/"
+                    class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="{% static 'img\base\logo-mision.png' %}" class=" bi me-2" width="40">
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Universidad Tecnologica de Pereira</span>
+            </div>
+
+        </footer>
+
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+    <!--<script src="js/scripts.js"></script>-->
+</body>
+
+</html>
