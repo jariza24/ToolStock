@@ -28,8 +28,7 @@
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a class=" btn btn-outline-warning">Soy un
-                            Cliente</a></li>
+                    <li class="nav-item"><a class=" btn btn-outline-warning">Cliente / Proveedor</a></li>
                 </ul>
             </header>
         </div>
@@ -51,6 +50,10 @@
                                 {% endfor %}
                             </b>
                         </h2>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn-success agregar bg-primary" href="{% url 'gruposcliente' %}"><span
+                                class="text-light">Regresar</span></a>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,8 @@
                             <td>{{producto.unidad.medida}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn bg-info btn-sm text-light">Ver</button>
+                                    <a type="button" href="{% url 'verproducto' producto.id %}"
+                                        class=" edit btn bg-info btn-sm text-light">Ver</a>
                                 </div>
                             </td>
                         </tr>

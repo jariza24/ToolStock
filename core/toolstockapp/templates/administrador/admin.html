@@ -70,9 +70,21 @@
                         </h2>
                     </div>
                     <div class="col-6">
-                        <a class="btn btn-success agregar bg-success" data-toggle="modal"><span
-                                class="text-light">Agregar
+                        <a class="btn btn-success agregar bg-primary" href="{% url 'gruposadmin' %}"><span
+                                class="text-light">Regresar</span></a>
+
+                        {% for grupo in grupos%}
+                        {% if grupo.nombre != 'Todos los Productos'%}
+                        <a class="btn btn-success agregar bg-success" href="{% url 'agregarproducto' grupo.id %}"
+                            data-toggle="modal"><span class="text-light">Agregar
                                 Producto</span></a>
+                        {% else %}
+                        <a class="btn btn-success agregar bg-success" href="{% url 'agregarproductoall' %}"
+                            data-toggle="modal"><span class="text-light">Agregar
+                                Producto</span></a>
+                        {% endif %}
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>
@@ -98,9 +110,12 @@
                             <td>{{producto.unidad.medida}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a type="button" class=" edit btn bg-info btn-sm text-light">Ver</a>
-                                    <a type="button" class=" edit btn bg-warning btn-sm text-light">Editar</a>
-                                    <a type="button" class="btn bg-danger btn-sm text-light">Eliminar</a>
+                                    <a type="button" href="{% url 'verproducto' producto.id %}"
+                                        class=" edit btn bg-info btn-sm text-light">Ver</a>
+                                    <a type="button" class=" edit btn bg-warning btn-sm text-light"
+                                        href="{% url 'editarproducto' producto.id %}">Editar</a>
+                                    <a type="button" class="btn bg-danger btn-sm text-light"
+                                        href="{% url 'eliminarproducto' producto.id %}">Eliminar</a>
                                 </div>
                             </td>
                         </tr>
@@ -130,8 +145,8 @@
 
 
     </main>
-
-    <div id="editarProducto" class="modal" tabindex="-1">
+    <!--
+        <div id="editarProducto" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,6 +163,8 @@
             </div>
         </div>
     </div>
+    -->
+
 
     <div class="container">
 

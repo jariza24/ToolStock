@@ -11,18 +11,14 @@ Login
 
 {% block cuerpo %}
 {% if messages %}
-<style>
-    .alert {
-        width: 40%;
-    }
-</style>
-<div class="">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" role="alert">
-        {% for message in messages %}
-        {{ message }}
+
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible text-center" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></butt </div>
         {% endfor %}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
 </div>
 
 {% endif %}

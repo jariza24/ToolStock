@@ -18,15 +18,18 @@ Página de Inicio
                     ferreteria</p>
 
                 <div class="row py-md-5">
+                    {% if user.is_authenticated%}
                     <div class="col-3">
-                        <a href="{% url 'gruposcliente' %}" class="btn btn-primary ">Soy Cliente</a>
+                        <a href="{% url 'gruposadmin' %}" class="btn btn-primary ">Ir a los grupos</a>
                     </div>
-                    <div class="col">
-                        <a href="{% url 'login' %}" class="btn btn-primary">Soy Administrador</a>
+                    {% else %}
+                    <div class="col-4">
+                        <a href="{% url 'gruposcliente' %}" class="btn btn-primary ">Clientes / Proveedores</a>
                     </div>
-                    <div class="col">
-                        <a href="{% url 'login' %}" class="btn btn-primary">Soy Proveedor</a>
+                    <div class="col-4">
+                        <a href="{% url 'login' %}" class="btn btn-primary">Administradores</a>
                     </div>
+                    {% endif %}
                 </div class="row">
             </div>
             <div class="col-4">

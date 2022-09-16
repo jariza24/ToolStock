@@ -32,6 +32,7 @@
                     <li class="nav-item"><a href="#" class="nav-link">Acerca de Nosotros</a></li>
                 </ul>
                 -->
+                {% if user.is_authenticated %}
                 <div class="dropdown text-end ">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle "
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,17 +41,165 @@
                             class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small">
-                        {% if user.is_authenticated%}
+
                         <li><a class="dropdown-item">{{ user.username }}</a></li>
                         <li><a class="dropdown-item" href="{% url 'logout'%}">Cerrar Sesión</a></li>
-                        {% endif%}
+
                     </ul>
                 </div>
+                {% else %}
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class=" btn btn-outline-warning">Cliente / Proveedor</a></li>
+                </ul>
+                {% endif%}
             </header>
         </div>
     </header>
 
     <main class="container py-2 ">
+        <div class="table-wrapper border rounded bg-secondary">
+            <div class="table-title bg-dark">
+                <div class="row">
+                    <div class="col-6">
+                        <h2>
+                            <b>
+                                Información del Producto
+                            </b>
+                        </h2>
+                    </div>
+                    <div class="col-6">
+                        {% for producto in productos %}
+                        {% if user.is_authenticated%}
+                        <a class="btn btn-success agregar bg-info" href="{% url 'administrador' producto.grupo.id%}">
+                            <span class=" text-light">
+                                Regresar </span></a>
+                        {% else %}
+                        <a class="btn btn-success agregar bg-info" href="{% url 'cliente' producto.grupo.id%}">
+                            <span class=" text-light">
+                                Regresar </span></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="table-responsive border rounded bg-light">
 
+                <table class="table ">
+                    <thead class="table bg-info ">
+                        <tr>
+
+                            <th scope="col">Item</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                        {% for producto in productos %}
+                        <tr>
+                            <td scope="row"><i><strong>Nombre del Producto</strong></i></td>
+                            <td>{{producto.nombre}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Nombre del Proveedor</strong></i></td>
+                            <td>{{producto.proveedor.nombre}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Dirección</strong></i></td>
+                            <td>{{producto.proveedor.direccion}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Telefono</strong></i></td>
+                            <td>{{producto.proveedor.telefono}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Ciudad</strong></i></td>
+                            <td>{{producto.proveedor.ciudad.nombre}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Precio</strong></i></td>
+                            <td>{{producto.precio}}</td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><i><strong>Medida</strong></i></td>
+                            <td>{{producto.unidad.medida}}</td>
+                        </tr>
+
+                        {% endfor %}
+
+
+
+                        <!--
+                                    <tr>
+                                    <td scope="row">Cerradura</td>
+                                    <td>Ideace Gato</td>
+                                    <td>50,000 COP</td>
+                                    <td>Unidad</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn bg-info btn-sm text-light">Ver</button>
+                                            <button type="button" class="btn bg-warning btn-sm text-light">Editar</button>
+                                            <button type="button" class="btn bg-danger btn-sm text-light">Eliminar</button>
+                                        </div>
+        
+                                    </td>
+                                </tr>
+                                -->
+                    </tbody>
+                </table>
+
+                {% for producto in productos %}
+                {% if producto.grupo.id is 1%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\cerrajeria.png' %}">
+                </div>
+                {% endif %}
+                {% if producto.grupo.id is 2%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\enchapes.png' %}">
+                </div>
+                {% endif %}
+                {% if producto.grupo.id is 3%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\pisos.png' %}">
+                </div>
+                {% endif %}
+                {% if producto.grupo.id is 4%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\tuberia-electrica.png' %}">
+                </div>
+                {% endif %}
+                {% if producto.grupo.id is 5%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\tuberia-pvc.png' %}">
+                </div>
+                {% endif %}
+                {% if producto.grupo.id is 6%}
+                <div class="bg-image d-flex flex-row justify-content-center alig-items-center py-2">
+                    <img class="border rounded" src="{% static 'img\grupos\pinturas.png' %}">
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
     </main>
+    <div class="container">
+
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="https://www.misiontic2022.gov.co/portal/"
+                    class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="{% static 'img\base\logo-mision.png' %}" class=" bi me-2" width="40">
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Universidad Tecnologica de Pereira</span>
+            </div>
+
+        </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 </body>
