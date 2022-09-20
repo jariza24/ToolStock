@@ -105,8 +105,8 @@ def agregarProducto(request, id):
             grupo = Grupo.objects.get(id=id)
             producto.grupo = grupo
             producto.save()
-            data['mensaje'] = 'Guardado Correctamente'
-            return redirect(f'/administrador/{id}')
+            messages.add_message(request, messages.SUCCESS, 'Producto agregado correctamente')
+            return redirect(f'/administrador/{producto.grupo_id}')
         else:
             data['mensaje'] = 'Hubo un error'
 
@@ -119,8 +119,8 @@ def agregarProductoAll(request):
         formulario = altProductoForm(data=request.POST)
         if( formulario.is_valid() ):
             formulario.save()
-            data['mensaje'] = 'Guardado Correctamente'
-            return redirect(f'/administrador/')
+            messages.add_message(request, messages.SUCCESS, 'Producto agregado correctamente')
+            return redirect('/administrador/')
         else:
             data['mensaje'] = 'Hubo un error'
 
@@ -137,6 +137,7 @@ def editarProducto(request, id):
 
         if (formulario.is_valid()):
             formulario.save()
+            messages.add_message(request, messages.SUCCESS, 'Producto editado correctamente')
             return redirect(f'/administrador/{producto.grupo_id}')
         else:
             data['mensaje'] = 'Hubo un error'
@@ -149,13 +150,11 @@ def eliminarProducto(request, id):
     producto.delete()
     
     if(producto.grupo_id > 6):
-        grupos = [{'nombre':'Todos los Productos'}]
-        productos = Producto.objects.all()
-        return render(request, 'administrador/admin.html', {'productos':productos, 'grupos':grupos})
+        messages.add_message(request, messages.SUCCESS, 'Producto eliminado correctamente')
+        return redirect(f'/administrador/')
     else:
-        grupos = Grupo.objects.filter(id=producto.grupo_id)
-        productos = Producto.objects.filter(grupo_id=producto.grupo_id)
-        return render(request, 'administrador/admin.html', {'productos':productos, 'grupos':grupos})
+       messages.add_message(request, messages.SUCCESS, 'Producto eliminado correctamente')
+       return redirect(f'/administrador/{producto.grupo_id}')
 
 
 def crearProducto(request):
