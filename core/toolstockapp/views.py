@@ -112,6 +112,7 @@ def agregarProducto(request, id):
 
     return render(request, 'CRUD/agregar_producto.html', data)
 
+@login_required(login_url='/login')
 def agregarProductoAll(request):
     
     data = {'form': altProductoForm()}
@@ -126,6 +127,7 @@ def agregarProductoAll(request):
 
     return render(request, 'CRUD/agregar_producto.html', data)
 
+@login_required(login_url='/login')
 def editarProducto(request, id):
 
     producto = Producto.objects.get(id=id)
@@ -144,6 +146,7 @@ def editarProducto(request, id):
         
     return render(request, 'CRUD/editar_producto.html', data)
 
+@login_required(login_url='/login')
 def eliminarProducto(request, id):
 
     producto = Producto.objects.get(id=id)
@@ -156,7 +159,7 @@ def eliminarProducto(request, id):
        messages.add_message(request, messages.SUCCESS, 'Producto eliminado correctamente')
        return redirect(f'/administrador/{producto.grupo_id}')
 
-
+@login_required(login_url='/login')
 def crearProducto(request):
     if request.method == 'POST':
         form = ProductoForm(request.POST)
@@ -175,6 +178,7 @@ def crearProducto(request):
 
 def acerca(request):
     return render(request,'home/about.html')
+
 
 def logoutUser(request):
     logout(request)
